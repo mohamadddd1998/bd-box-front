@@ -9,7 +9,7 @@ import SectionSubTitle from "@/components/SectionSubTitle";
 const UserBoxes = () => {
   return (
     <section id="users-box" className="relative">
-      <div className="container max-w-6xl flex flex-col gap-4 justify-center items-center py-8">
+      <div className="container max-w-6xl flex flex-col gap-y-4 justify-center items-center py-8">
         <SectionTitle title="کاربران" subtitle="باکس های" dir="ltr" />
         <SectionSubTitle text="آخرین باکس های کاربران" />
 

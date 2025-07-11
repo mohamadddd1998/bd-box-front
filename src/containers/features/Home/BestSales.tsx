@@ -13,7 +13,7 @@ import SectionSubTitle from "@/components/SectionSubTitle";
 const BestSales = () => {
   return (
     <section id="best-sales" className="relative">
-      <div className="container max-w-6xl flex flex-col gap-4 justify-center items-center py-8">
+      <div className="container max-w-6xl  flex flex-col justify-center items-center gap-y-4 py-8">
         <div className="absolute left-0 top-0">
           <img src={ellipse5.src} />
         </div>

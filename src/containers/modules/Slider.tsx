@@ -50,18 +50,18 @@ const Slider = (props: SliderProps) => {
         {children}
       </Swiper>
       {/* Custom Navigation Buttons */}
-      <div className="custom-navigation flex -translate-y-12 z-10">
+      <div className="custom-navigation inline-flex -translate-y-12 z-10 ">
         <button
           className="custom-prev flex justify-center items-center
-             border-2 border-darkGrayColor  py-1.5 px-2  mx-[100px] 
-             xs:mx-[75px] lg:mx-[50px] rounded-sm cursor-pointer"
+             border-2 border-darkGrayColor  py-1.5 px-2  translate-x-22 
+             xs:translate-x-16 lg:translate-x-12 rounded-sm cursor-pointer"
         >
           <FaAngleRight className="text-darkGrayColor text-[10px] font-bold" />
         </button>
         <button
           className="custom-next flex justify-center items-center
-             border-2 border-darkGrayColor py-1.5 px-2 mx-[100px]
-              xs:mx-[75px] lg:mx-[50px] rounded-sm cursor-pointer"
+             border-2 border-darkGrayColor py-1.5 px-2 -translate-x-22
+              xs:-translate-x-16 lg:-translate-x-12 rounded-sm cursor-pointer"
         >
           <FaAngleLeft className="text-darkGrayColor text-[10px] font-bold" />
         </button>
