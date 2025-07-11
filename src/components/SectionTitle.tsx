@@ -3,7 +3,7 @@ import { clsx } from "@/helpers/clsx";
 interface SectionTitleProps {
   title: string;
   subtitle: string;
-  dir: "rtl" | "ltr";
+  dir?: "rtl" | "ltr";
 }
 const SectionTitle = ({
   title,
