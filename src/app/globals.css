@@ -1,26 +1,129 @@
 @import "tailwindcss";
+@import "../assets/fonts/font.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-grayColor: #a4a4a4;
+  --color-lightGrayColor: #d3d3d3;
+  --color-extarLightGrayColor: #f5f5f5;
+  --color-darkGrayColor: #333333;
+  --color-secondaryColor: #fea000;
+  --color-primary: #3858e9;
+  --color-darkPrimary: #1e46b5;
+  --color-redColor: #ff2626;
+  --color-bodyColor: #f9fafb;
+  --radius-8xl: 4rem;
+  --breakpoint-xs: 30rem;
+  --font-Bahnman: Bahman;
+  --font-YekanBakh: YekanBakh-Regular;
+  --font-Estedad: Estedad-Regular;
+  --shadow-rounded: 0px 0px 50px 0px rgba(0, 0, 0, 0.05);
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+  body {
+    @apply font-Estedad!;
+  }
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @apply max-w-screen;
+}
+@utility offerBg {
+  @media (width >= 64rem /* 1024px */) {
+    background-image: url("../assets/images/offer.png");
+    @apply h-[400px] bg-no-repeat bg-size-[100%_100%];
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/***arrow-shaped***/
+.arrow-shaped-rtl,
+.arrow-shaped-ltr {
+  --h: 46px;
+  /*elementheight*/
+  --s: 28px;
+  /*trianglesize*/
+  --r: 8px;
+  /*radius*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 180px;
+  height: var(--h);
+  padding-right: calc(var(--s) / 2);
+  border-radius: var(--r) 0 0 var(--r);
+  --_a: atan2(var(--s), var(--h) / 2);
+  clip-path: shape(
+    from 0 0,
+    line to calc(100% - var(--s) - var(--r)) 0,
+    curve by calc(var(--r) * (1 + sin(var(--_a))))
+      calc(var(--r) * cos(var(--_a))) with var(--r) 0,
+    line to calc(100% - var(--r) * sin(var(--_a)))
+      calc(50% - var(--r) * cos(var(--_a))),
+    curve by 0 calc(2 * var(--r) * cos(var(--_a))) with 100% 50% from origin,
+    line to calc(100% - var(--s) + var(--r) * sin(var(--_a)))
+      calc(100% - var(--r) * cos(var(--_a))),
+    curve to calc(100% - var(--s) - var(--r)) 100% with calc(100% - var(--s))
+      100%,
+    line to 0 100%
+  );
+  -webkit-border-radius: var(--r) 0 0 var(--r);
+  -moz-border-radius: var(--r) 0 0 var(--r);
+  -ms-border-radius: var(--r) 0 0 var(--r);
+  -o-border-radius: var(--r) 0 0 var(--r);
+}
+
+@supports not (clip-path: shape(from 0 0, line to 0 0)) {
+  .arrow-shaped-rtl,
+  .arrow-shaped-ltr {
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--s)) 0,
+      100% 50%,
+      calc(100% - var(--s)) 100%,
+      0 100%
+    );
+  }
+}
+.arrow-shaped-ltr,
+.arrow-shaped-ltr > * {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+/***box-swiper */
+.box-swiper {
+  width: 100%;
+  height: 100%;
+  padding: 60px 0px;
+}
+
+.box-swiper .swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-swiper .swiper-pagination .swiper-pagination-bullet {
+  width: 25px;
+  background-color: var(--color-grayColor);
+  height: 3px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+.box-swiper .swiper .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--color-darkGrayColor);
+}
+
+.box-swiper .custom-navigation .swiper-button-disabled {
+  border: 2px solid var(--color-lightGrayColor);
+}
+.box-swiper .custom-navigation .swiper-button-disabled i {
+  color: var(--color-lightGrayColor);
 }
