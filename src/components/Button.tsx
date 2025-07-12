@@ -4,8 +4,9 @@ import React from "react";
 interface ButtonProps {
   children: React.ReactNode;
   variant: "primary" | "secondary";
+  className?:string;
 }
-const Button = ({ children, variant }: ButtonProps) => {
+const Button = ({ children, variant , className}: ButtonProps) => {
   const variantColor = {
     secondary: "bg-secondaryColor/80 hover:bg-secondaryColor",
     primary: "bg-primary hover:bg-darkPrimary",
@@ -14,6 +15,7 @@ const Button = ({ children, variant }: ButtonProps) => {
     <button
       className={clsx(
         "p-4 text-xs text-white rounded-md cursor-pointer",
+        className,
         variantColor
       )}
     >
