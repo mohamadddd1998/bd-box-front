@@ -2,7 +2,7 @@ import imoji1 from "@/assets/images/imoji-1.png";
 import Button from "@/components/Button";
 import Link from "next/link";
 
-const Hero = () => {
+const RegularHero = () => {
   return (
     <div className="text-center py-18 flex flex-col items-center justify-center gap-6">
       <div className="md:text-5xl text-3xl relative font-Bahnman">
@@ -33,4 +33,4 @@ const Hero = () => {
     </div>
   );
 };
-export default Hero;
+export default RegularHero;

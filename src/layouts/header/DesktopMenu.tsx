@@ -17,7 +17,7 @@ const DesktopMenu = () => {
         </div>
       </li>
       <li className="flex gap-1 items-center flex-row-reverse">
-        <Link href={'/kado-creator'} className="text-grayColor text-sm">
+        <Link href={'/create-kado'} className="text-grayColor text-sm">
           کادوتو بساز
         </Link>
         <div className="w-4 h-4 bg-redColor/10 rounded-full flex justify-center items-center">

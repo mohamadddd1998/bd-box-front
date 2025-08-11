@@ -1,7 +1,7 @@
 import imoji2 from "@/assets/images/imoji-2.png";
 import Button from "@/components/Button";
 
-const Payment = () => {
+const BoxPayment = () => {
   return (
     <div className=" flex flex-col items-center max-w-sm justify-center gap-4 text-darkGrayColor mx-auto">
       <img src={imoji2.src} className="w-40" />
@@ -14,4 +14,4 @@ const Payment = () => {
     </div>
   );
 };
-export default Payment;
+export default BoxPayment;

@@ -1,20 +1,21 @@
 import Checkbox from "@/components/CheckBox";
 import { FiFilter } from "react-icons/fi";
-import product1 from "@/assets/images/product-1.png";
-import product2 from "@/assets/images/product-2.png";
-import product3 from "@/assets/images/product-3.png";
 import Button from "@/components/Button";
-import { useRef, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { clsx } from "@/helpers/clsx";
 import { useOnClickOutside } from "usehooks-ts";
+import { KadoProducts } from "@/constants/data";
+import { useFormikContext } from "formik";
+import { toast } from "react-toastify";
 
 const BoxItems = () => {
   const [openFilter, setOpenFilter] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
+  /**outSide Click */
   const handleClickOutside = () => setOpenFilter(false);
-
   useOnClickOutside(ref as React.RefObject<HTMLElement>, handleClickOutside);
+  const { setFieldValue, values } = useFormikContext<any>();
+  console.log(values, "values");
 
   return (
     <div className="flex flex-col gap-4  relative">
@@ -73,55 +74,58 @@ const BoxItems = () => {
           placeholder="نام محصول را وارد کنید ..."
         />
       </div>
-      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4">
-        <div
-          className={clsx(
-            "relative bg-white px-3 py-4 rounded-2xl gap-6 flex flex-col items-center justify-between",
-            openFilter &&
+      <div className="grid grid-cols-3 xs:grid-cols-2 md:grid-cols-5 gap-4">
+        {KadoProducts.map((product, index) => (
+          <div
+            key={index}
+            className={clsx(
+              "relative bg-white px-3 py-4 rounded-2xl gap-2 flex flex-col items-center justify-between",
+              openFilter &&
               "after:absolute after:top-0 after:bottom-0 after:right-0 after:left-0 after:bg-black/10 after:rounded-2xl"
-          )}
-        >
-          <img src={product1.src} />
-          <span className="font-bold text-xs">محصول شماره 1</span>
-          <div className="flex justify-between items-center w-full">
-            <span className="text-xs font-bold text-grayColor">
-              42000 تومانـــ
-            </span>
-            <Checkbox />
+            )}
+            onClick={() => {
+              const _items = values.items;
+              _items.push({
+                ...product,
+                innerId: Math.floor(Math.random() * 1000),
+              });
+              if (values['shape']) {
+                setFieldValue("items", _items);
+              }else{
+                toast.error('ابتدا یک باکس را انتخاب کنید')
+              }
+            }}
+          >
+            <img src={product.img} />
+            <div className="flex justify-between items-center w-full">
+              <span className="text-xs font-bold text-grayColor">
+                {product.price}
+              </span>
+              {/* <Checkbox
+                name="items"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  const _items = values.items;
+                  const itemIndex = values.items.findIndex(
+                    (item: any) => item.id === product.id
+                  );
+                  if (itemIndex === -1) {
+                    _items.push(product);
+                  } else {
+                    _items.splice(itemIndex, 1);
+                  }
+                  setFieldValue("items", _items);
+                }}
+                checked={
+                  values.items.findIndex(
+                    (item: any) => item.id === product.id
+                  ) === -1
+                    ? false
+                    : true
+                }
+              /> */}
+            </div>
           </div>
-        </div>
-        <div
-          className={clsx(
-            "relative bg-white px-3 py-4 rounded-2xl gap-6 flex flex-col items-center justify-between",
-            openFilter &&
-              "after:absolute after:top-0 after:bottom-0 after:right-0 after:left-0 after:bg-black/10 after:rounded-2xl"
-          )}
-        >
-          <img src={product2.src} />
-          <span className="font-bold text-xs">محصول شماره 1</span>
-          <div className="flex justify-between items-center w-full">
-            <span className="text-xs font-bold text-grayColor">
-              42000 تومانـــ
-            </span>
-            <Checkbox />
-          </div>
-        </div>
-        <div
-          className={clsx(
-            "relative bg-white px-3 py-4 rounded-2xl gap-6 flex flex-col items-center justify-between",
-            openFilter &&
-              "after:absolute after:top-0 after:bottom-0 after:right-0 after:left-0 after:bg-black/10 after:rounded-2xl"
-          )}
-        >
-          <img src={product3.src} />
-          <span className="font-bold text-xs">محصول شماره 1</span>
-          <div className="flex justify-between items-center w-full">
-            <span className="text-xs font-bold text-grayColor">
-              42000 تومانـــ
-            </span>
-            <Checkbox />
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

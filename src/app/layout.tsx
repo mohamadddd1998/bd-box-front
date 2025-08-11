@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 /**global css */
 import "./globals.css";
 import Footer from "@/layouts/footer";
+import { ToastContainer } from 'react-toastify';
 
 export const metadata: Metadata = {
   title: "کـــادو باکس",
@@ -22,12 +23,12 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body
         className="bg-bodyColor"
-        data-new-gr-c-s-check-loaded="14.1243.0"
-        data-gr-ext-installed=""
+        suppressHydrationWarning
       >
         <Header />
         {children}
         <Footer />
+        <ToastContainer />
       </body>
     </html>
   );

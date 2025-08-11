@@ -13,7 +13,6 @@ import Devider from "@/components/Devider";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import Logo from "./Logo";
-import Hero from "./Hero";
 import Cart from "./Cart";
 import User from "./User";
 
@@ -37,7 +36,7 @@ const Header = () => {
       <div className="absolute top-1/6 left-0 -z-[5] hidden md:block">
         <img src={box1.src} className="w-48" />
       </div>
-      <div className="absolute -bottom-1/6 right-0 -z-[5] hidden md:block">
+      <div className="absolute top-1/1 right-0 -z-[5] hidden md:block">
         <img src={box2.src} className="w-72" />
       </div>
       <div className="absolute right-0 top-1/3 -z-[5] hidden md:block">
@@ -69,7 +68,6 @@ const Header = () => {
         </div>
       </nav>
       <Devider />
-      <Hero />
     </header>
   );
 };
