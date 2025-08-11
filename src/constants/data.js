@@ -9,6 +9,7 @@ import greenBox from "@/assets/images/green-box.png";
 import product1 from "@/assets/images/product-1.png";
 import product2 from "@/assets/images/product-2.png";
 import product3 from "@/assets/images/product-3.png";
+import product4 from "@/assets/images/product-4.png";
 
 export const kadoTabs = [
   {
@@ -88,5 +89,11 @@ export const KadoProducts = [
     name: "جوراب",
     price: 40000,
     img: product3.src,
+  },
+   {
+    id: 4,
+    name: "ساعت",
+    price: 53000,
+    img: product4.src,
   },
 ];

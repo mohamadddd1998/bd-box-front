@@ -10,14 +10,9 @@ export default function CreateKado() {
       </Suspense>
       <main className="pb-16">
         <section id="kado">
-          <div
-            className="container max-w-6xl max-xs:px-1 py-6 lg:bg-secondaryColor 
-                flex flex-col gap-4 rounded-4xl"
-          >
-            <Suspense fallback={<h1>Loading ... </h1>}>
-              <CreateKadoForm />
-            </Suspense>
-          </div>
+          <Suspense fallback={<h1>Loading ... </h1>}>
+            <CreateKadoForm />
+          </Suspense>
         </section>
       </main>
     </>

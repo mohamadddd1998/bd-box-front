@@ -101,28 +101,6 @@ const BoxItems = () => {
               <span className="text-xs font-bold text-grayColor">
                 {product.price}
               </span>
-              {/* <Checkbox
-                name="items"
-                onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  const _items = values.items;
-                  const itemIndex = values.items.findIndex(
-                    (item: any) => item.id === product.id
-                  );
-                  if (itemIndex === -1) {
-                    _items.push(product);
-                  } else {
-                    _items.splice(itemIndex, 1);
-                  }
-                  setFieldValue("items", _items);
-                }}
-                checked={
-                  values.items.findIndex(
-                    (item: any) => item.id === product.id
-                  ) === -1
-                    ? false
-                    : true
-                }
-              /> */}
             </div>
           </div>
         ))}
