@@ -1,3 +1,4 @@
+import { _2DArray } from "@/lib/2D-array";
 import { darkenColor } from "@/lib/darken-color";
 import { FaXmark } from "react-icons/fa6";
 
@@ -7,6 +8,11 @@ interface IHeartBox {
   onRemoveItem: (innerId: number) => void;
 }
 const HeartBox = ({ color, items, onRemoveItem }: IHeartBox) => {
+  console.log(
+    _2DArray(items, 9).map((elements) => elements.map((el) => el.id)),
+    "_2DArray(items, 9)"
+  );
+
   return (
     <svg
       width="250"
@@ -75,43 +81,50 @@ const HeartBox = ({ color, items, onRemoveItem }: IHeartBox) => {
         strokeWidth="0.621485"
         strokeLinejoin="round"
       />
-      {items.map((item: Record<string, any>, index: number) => {
-        const initialSize = 32;
-        const itemsPerRow = 3;
-        const startX = 32;
-        const startY = 15;
-
-        const col = index % itemsPerRow;
-        const row = Math.floor(index / itemsPerRow);
-
-        const x = startX + col * initialSize;
-        const y = startY + row * initialSize;
-
+      {_2DArray(items, 7).map((elements, index: number) => {
+        let offset = index * 15;
         return (
-          <g key={index}>
-            <image
-              key={index}
-              href={item.img}
-              x={x}
-              y={y}
-              style={{ userSelect: "none" }}
-              className="w-7 h-7"
-            />
-            <foreignObject
-              x={x + 22}
-              y={y - 2}
-              width={8}
-              height={8}
-              onClick={() => onRemoveItem(item.innerId)}
-            >
-              <div
-                className="text-sm bg-red-500 text-white flex justify-center 
+          <>
+            {elements.map((element: Record<string, any>, index: number) => {
+              const itemsPerRow = 3 ;
+              const initialSize = 32
+              const startX = 32;
+              const startY = 15;
+             
+              const col =index === 6 ? index % (itemsPerRow) + 1 : index % (itemsPerRow);
+              const row = Math.floor(index / (itemsPerRow));
+
+              
+              const x = startX + col * initialSize ;
+              const y = startY + row * initialSize + offset;
+
+              return (
+                <g key={index}>
+                  <image
+                    href={element.img}
+                    x={x}
+                    y={y}
+                    className="w-9 h-9 animate-back-in-down"
+                  />
+                  <foreignObject
+                    x={x + 25}
+                    y={y - 2}
+                    width={8}
+                    height={8}
+                    onClick={() => onRemoveItem(element.innerId)}
+                    className="animate-back-in-down"
+                  >
+                    <div
+                      className="text-sm bg-red-500 text-white flex justify-center 
                                 items-center h-2 w-2 rounded-2xl cursor-pointer"
-              >
-                <FaXmark size={6} />
-              </div>
-            </foreignObject>
-          </g>
+                    >
+                      <FaXmark size={6} />
+                    </div>
+                  </foreignObject>
+                </g>
+              );
+            })}
+          </>
         );
       })}
       <path

@@ -11,7 +11,7 @@ const KadoCost = () => {
       <span className="text-white">
         {values["items"]
           ?.reduce((sum: number, product: any) => sum + product.price, 0)
-          ?.toLocaleString()}{" "}
+          ?.toLocaleString("en-US")}{" "}
         تومان
       </span>
       <span className="text-xs">: قیــمت تا ایـن لحظه </span>

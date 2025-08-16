@@ -3,7 +3,7 @@ import { KadoShapes } from "@/constants/data";
 import { Field, FieldProps } from "formik";
 const BoxShape = () => {
   return (
-    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
       <Field name="shape">
         {({ field }: FieldProps) =>
           KadoShapes.map((shape, index: number) => (
@@ -12,7 +12,7 @@ const BoxShape = () => {
              flex flex-col items-center justify-between"
               key={index}
             >
-              <img src={shape.img} className="w-40" />
+              <img src={shape.img} className="w-20" />
               <div className="flex justify-between items-center w-full">
                 <span className="text-xs font-bold">{shape.title}</span>
                 <RadioButton name={field.name} value={shape.name} />

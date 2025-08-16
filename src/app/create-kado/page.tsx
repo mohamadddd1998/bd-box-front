@@ -10,9 +10,7 @@ export default function CreateKado() {
       </Suspense>
       <main className="pb-16">
         <section id="kado">
-          <Suspense fallback={<h1>Loading ... </h1>}>
-            <CreateKadoForm />
-          </Suspense>
+          <CreateKadoForm />
         </section>
       </main>
     </>

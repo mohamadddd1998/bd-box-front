@@ -24,7 +24,7 @@ const RegularHero = () => {
       </h1>
       <div className="flex items-center gap-6 my-4">
         <Link href={"/"}>
-          <Button variant="secondary">بریـم که بسـازیمش</Button>
+          <Button variant="secondary" >بریـم که بسـازیمش</Button>
         </Link>
         <a href="#" className="text-xs text-darkGrayColor">
           اطـلاعات بیشتـر

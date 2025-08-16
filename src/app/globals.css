@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tailwindcss-animated";
 @import "../assets/fonts/font.css";
 
 @theme {
@@ -10,13 +11,12 @@
   --color-primary: #3858e9;
   --color-darkPrimary: #1e46b5;
   --color-redColor: #ff2626;
-  --color-darkColor:#DF4B38;
+  --color-darkColor: #df4b38;
   --color-bodyColor: #f9fafb;
   --radius-8xl: 4rem;
   --breakpoint-xs: 30rem;
   --font-Bahnman: Bahman;
-  --font-YekanBakh: YekanBakh-Regular;
-  --font-Estedad: Estedad-Regular;
+  --font-Estedad: Estedad;
   --shadow-rounded: 0px 0px 50px 0px rgba(0, 0, 0, 0.05);
 }
 @layer base {
@@ -24,6 +24,7 @@
     @apply font-Estedad!;
   }
 }
+
 @utility container {
   margin-inline: auto;
   padding-inline: 2rem;
@@ -33,6 +34,25 @@
   @media (width >= 64rem /* 1024px */) {
     background-image: url("../assets/images/offer.png");
     @apply h-[400px] bg-no-repeat bg-size-[100%_100%];
+  }
+}
+
+.animate-back-in-down {
+  animation: back-in-down 0.5s ease-out 1;
+  -webkit-animation: back-in-down 0.5s ease-out 1;
+}
+@keyframes back-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(20px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -127,4 +147,13 @@
 }
 .box-swiper .custom-navigation .swiper-button-disabled i {
   color: var(--color-lightGrayColor);
+}
+
+body {
+  overflow: auto; /* Allows scrolling */
+  scrollbar-width: none; /* For Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
 }

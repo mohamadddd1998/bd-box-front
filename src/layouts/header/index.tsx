@@ -56,7 +56,7 @@ const Header = () => {
         <img src={box6.src} className="w-24 blur-xs" />
       </div>
       {/**nav */}
-      <nav className="container flex items-center justify-between py-10">
+      <nav className="container flex items-center justify-between py-6">
         <div className="flex items-center gap-12">
           <Logo />
           <DesktopMenu />

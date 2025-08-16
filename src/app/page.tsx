@@ -10,7 +10,6 @@ export default function Home() {
   return (
     <>
       <Suspense fallback={<h1>Loading ... </h1>}>
-        {" "}
         <RegularHero />
       </Suspense>
       <main className="pb-16">
