@@ -141,19 +141,3 @@
 .box-swiper .swiper .swiper-pagination .swiper-pagination-bullet-active {
   background-color: var(--color-darkGrayColor);
 }
-
-.box-swiper .custom-navigation .swiper-button-disabled {
-  border: 2px solid var(--color-lightGrayColor);
-}
-.box-swiper .custom-navigation .swiper-button-disabled i {
-  color: var(--color-lightGrayColor);
-}
-
-body {
-  overflow: auto; /* Allows scrolling */
-  scrollbar-width: none; /* For Firefox */
-}
-
-body::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Opera */
-}

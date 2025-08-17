@@ -23,7 +23,7 @@ const RegularHero = () => {
         </span>
       </h1>
       <div className="flex items-center gap-6 my-4">
-        <Link href={"/"}>
+        <Link href={"/create-kado"}>
           <Button variant="secondary" >بریـم که بسـازیمش</Button>
         </Link>
         <a href="#" className="text-xs text-darkGrayColor">

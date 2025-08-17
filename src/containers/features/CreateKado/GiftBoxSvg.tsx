@@ -29,7 +29,7 @@ const GiftBoxSvg = () => {
 
   return BoxComponent ? (
     <BoxComponent color={color} items={items} onRemoveItem={onRemoveItem} />
-  ) : null;
+  ) : <b>باکس مورد نظر خود را انتخاب کنید !!‍!</b>;
 };
 
 export default GiftBoxSvg;

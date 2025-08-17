@@ -31,12 +31,14 @@ const Slider = (props: SliderProps) => {
         slidesPerView: 4,
       },
     },
+    ...rest
   } = props;
   return (
     <>
       <Swiper
         className={clsx("swiper", sliderClassName)}
         spaceBetween={spaceBetween}
+        loop
         pagination={{
           clickable: true,
         }}
@@ -46,6 +48,7 @@ const Slider = (props: SliderProps) => {
         }}
         modules={[Pagination, Navigation]}
         breakpoints={breakpoints}
+        {...rest}
       >
         {children}
       </Swiper>

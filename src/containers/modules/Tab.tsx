@@ -20,7 +20,7 @@ const Tab = ({
   ...rest
 }: TabProps) => {
   return (
-    <li className="flex items-center" {...rest}>
+    <li className="flex items-center shrink-0" {...rest}>
       <span
         className={clsx(
           "hover:text-white hover:bg-primary rounded-md py-1.5 px-3 cursor-pointer",

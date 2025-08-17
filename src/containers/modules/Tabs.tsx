@@ -1,4 +1,4 @@
 const Tabs = ({ children }: { children: React.ReactNode }) => (
-  <ul className="flex items-center gap-x-4 gap-y-4  flex-wrap">{children}</ul>
+  <ul className="overflow-auto w-full flex gap-2 pb-2">{children}</ul>
 );
 export default Tabs;
