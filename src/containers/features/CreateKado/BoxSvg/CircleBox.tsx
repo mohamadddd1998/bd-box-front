@@ -61,7 +61,7 @@ const CircleBox = ({ color, items, onRemoveItem }: ICircleBox) => {
                     className="w-9 h-9 animate-back-in-down"
                   />
                   <foreignObject
-                    x={x + 25}
+                    x={x + 20}
                     y={y - 2}
                     width={8}
                     height={8}
